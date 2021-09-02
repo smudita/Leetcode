@@ -1,0 +1,20 @@
+   public int[] twoSum(int[] nums, int target) {
+        int s2[] = new int[2];
+        HashMap<Integer,Integer> HMap = new HashMap<>();
+        // for(int i=0;i<nums.length;i++){
+        //     HMap.put(nums[i],i);
+        // }
+        int diff=0;
+        for(int j=0;j<nums.length;j++){
+          diff = target - nums[j];
+          if(HMap.containsKey(diff)&& !HMap.get(diff).equals(j)){
+              s2[0] = j;
+              s2[1] = HMap.get(diff);
+              break;
+          }
+            HMap.put(nums[j],j);
+        }
+       
+       
+        return s2;
+    }
