@@ -1,0 +1,20 @@
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> Pascal = new ArrayList<>();
+        int k=0;
+        while(k<numRows){
+            List<Integer>sub=new ArrayList<>();
+            sub.add(1);
+            if(!Pascal.isEmpty()){
+                List<Integer>sub2=Pascal.get(Pascal.size()-1);
+                    for(int j=1;j<sub2.size();j++){
+                        sub.add(sub2.get(j)+sub2.get(j-1));
+                    }
+                sub.add(1);
+            }
+            Pascal.add(sub);
+            k++;
+        }
+        return Pascal;
+    }
+}
